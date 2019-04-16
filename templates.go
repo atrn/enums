@@ -15,7 +15,7 @@ const basicTemplate = `// DO NOT EDIT.
 
 package {{.Package}}
 
-{{- if .Imports -}}
+{{if .Imports -}}
 import ({{range .Imports}}
 	"{{.}}"
 {{- end}}
@@ -59,7 +59,7 @@ const scanStringTemplate = `
 func (v *{{.TypeName}}) scanString(s string) error {
 	switch s {
 	case "0":
-		*v = {{.TypeName}}__zero__
+		*v = {{.TypeName}}_Zero_
 	{{- range .Enumerators}}
 	case "{{.Tag}}":
 		*v = {{.Enum}}

@@ -75,7 +75,7 @@ E.g.
     package zoo
     
 	type Animal enum {
-		Bear
+	    Bear
             Gorilla
             Lion
             Seal
@@ -88,10 +88,10 @@ definition generates the code,
     type Animal int
     
     const (
-           Animal_0 Animal = iota
+           Animal_Zero_ Animal = iota
            Bear
-           Lion
            Gorilla
+           Lion
            Seal
     )
     

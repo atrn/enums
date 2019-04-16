@@ -15,7 +15,7 @@ type Colorspace enum {
  * other stuff...
  */
 type Op enum byte {
-     Over       `op-over`       // tag defines the string representation
+     Over       `op-over`       // tags define the enum's string representation
      In         `op-inside`
      Out        `op-outside`
      Atop       `op-atop`
