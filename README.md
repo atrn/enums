@@ -72,32 +72,31 @@ brace-delimited list of identifiers, the type's enumerators.
 
 E.g.
 
-    package zoo
+	package zoo
     
 	type Animal enum {
-	    Bear
-            Gorilla
-            Lion
-            Seal
-         }
-    }
+		Bear
+		Gorilla
+		Lion
+		Seal
+	}
 
 By default enums are represented as an int, the above
 definition generates the code,
 
-    type Animal int
+	type Animal int
     
-    const (
-           Animal_Zero_ Animal = iota
-           Bear
-           Gorilla
-           Lion
-           Seal
-    )
+	const (
+		Animal_Zero_ Animal = iota
+		Bear
+		Gorilla
+		Lion
+		Seal
+	)
     
-    func (a Animal) String() string {
-        ...  stringer implementation
-    }
+	func (a Animal) String() string {
+		...  stringer implementation
+	}
 
 ## Enum Base Type
 
