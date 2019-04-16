@@ -20,7 +20,7 @@ type Parser struct {
 }
 
 func NewParser(r io.Reader) *Parser {
-	p := &Parser{l: NewLexer(r), Current: TokBOF}
+	p := &Parser{l: NewLexer(r)}
 	return p.Advance()
 }
 

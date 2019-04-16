@@ -9,8 +9,7 @@ import "fmt"
 type Token int
 
 const (
-	TokBOF Token = iota
-	TokEOF
+	TokEOF Token = iota
 	TokByte
 	TokEnum
 	TokIdent
@@ -34,8 +33,6 @@ const (
 
 func (t Token) String() string {
 	switch t {
-	case TokBOF:
-		return "BOF"
 	case TokEOF:
 		return "EOF"
 	case TokByte:
