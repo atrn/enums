@@ -4,7 +4,6 @@ package main
 
 import (
 	"io"
-	"time"
 )
 
 type Enums struct {
@@ -12,7 +11,8 @@ type Enums struct {
 	Imports  []string
 	Enums    []EnumDefinition
 	Filename string
-	Time     time.Time
+	Time     string
+	User	 string
 }
 
 type Enumerator struct {

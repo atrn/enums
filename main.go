@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/user"
 	"path/filepath"
 	"strings"
 	"time"
@@ -89,7 +90,12 @@ func process(filename string, generator CodeGenerator) error {
 func parse(filename string, generator CodeGenerator) (Enums, error) {
 	var e Enums
 	e.Filename = filename
-	e.Time = time.Now()
+	e.Time = time.Now().Format(time.ANSIC)
+	e.User = "unknown"
+	u, err := user.Current()
+	if err == nil {
+		e.User = u.Username
+	}
 	if file, err := os.Open(filename); err != nil {
 		return Enums{}, err
 	} else if err = ParseToEnd(file, &e); err != nil {

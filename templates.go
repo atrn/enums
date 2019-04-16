@@ -10,12 +10,16 @@ package main
 // {{range}} performed over the enumerated types being processed.
 //
 const basicTemplate = `// DO NOT EDIT.
+//
 // Generated: {{.Time}}
-// From: {{.Filename}}
+// From:      {{.Filename}}
+// By:        {{.User}}
+//
 
 package {{.Package}}
 
-{{if .Imports -}}
+{{- if .Imports}}
+
 import ({{range .Imports}}
 	"{{.}}"
 {{- end}}
