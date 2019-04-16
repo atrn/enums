@@ -13,7 +13,6 @@ const (
 	TokEOF
 	TokByte
 	TokEnum
-	TokEq
 	TokIdent
 	TokInt
 	TokInt16
@@ -43,8 +42,6 @@ func (t Token) String() string {
 		return "byte"
 	case TokEnum:
 		return "Enum"
-	case TokEq:
-		return "Eq"
 	case TokIdent:
 		return "Ident"
 	case TokInt16:

@@ -129,8 +129,6 @@ func (l *Lexer) Get() (Token, string, error) {
 				// eat space
 			case ch == '/':
 				state = maybeStartComment
-			case ch == '=':
-				return success(TokEq, "=")
 			case ch == '{':
 				return success(TokLBrace, "{")
 			case ch == '}':
@@ -153,7 +151,6 @@ func (l *Lexer) Get() (Token, string, error) {
 				text += string(ch)
 			} else {
 				ungetchar()
-				state = initialState
 				if keywordTok, found := Keywords[text]; found {
 					tok = keywordTok
 				}
@@ -166,7 +163,6 @@ func (l *Lexer) Get() (Token, string, error) {
 				state = blockComment
 			} else {
 				ungetchar()
-				state = initialState
 				return success(TokOther, "/")
 			}
 		case commentToEOL:
