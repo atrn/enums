@@ -1,0 +1,22 @@
+package main
+
+// Testing //-style comments.
+//
+type Colorspace enum {
+     LAB
+     sRGB
+     RGBA
+     CMYK
+     YCrCb
+}
+
+/*
+ * A block // comment // with
+ * other stuff...
+ */
+type Op enum byte {
+     Over       `op-over`       // tag defines the string representation
+     In         `op-inside`
+     Out        `op-outside`
+     Atop       `op-atop`
+}
