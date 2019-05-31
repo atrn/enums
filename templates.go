@@ -30,8 +30,9 @@ type {{.TypeName}} {{.BaseType}}
 
 const (
 	{{.TypeName}}_Zero_ {{.TypeName}} = iota
+{{- $TypeName:=.TypeName -}}
 {{- range .Enumerators }}
-	{{.Enum}}
+	{{$TypeName}_{{.Enum}}
 {{- end}}
 )
 
@@ -39,8 +40,9 @@ func (v {{.TypeName}}) String() string {
 	switch v {
 	case {{.TypeName}}_Zero_:
 		return "*!!!* UNINITIALIZED {{.TypeName}} VALUE *!!!*"
+        {{- $TypeName:=.TypeName -}}
 	{{- range .Enumerators}}
-	case {{.Enum}}:
+	case {{$TypeName}}_{{.Enum}}:
 		return "{{.Tag}}"
 	{{- end}}
 	default:
@@ -64,9 +66,10 @@ func (v *{{.TypeName}}) scanString(s string) error {
 	switch s {
 	case "0":
 		*v = {{.TypeName}}_Zero_
+        {{- $TypeName:=.TypeName -}}
 	{{- range .Enumerators}}
 	case "{{.Tag}}":
-		*v = {{.Enum}}
+		*v = {{$TypeName}}_{{.Enum}}
 	{{- end}}
 	default:
 		return fmt.Errorf("*!* INVALID {{.TypeName}} LITERAL: %q *!*", s)
