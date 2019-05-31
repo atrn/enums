@@ -87,11 +87,11 @@ definition generates the code,
 	type Animal int
     
 	const (
-		Animal_Zero_ Animal = iota
-		Bear
-		Gorilla
-		Lion
-		Seal
+		Animal_0_ Animal = iota
+		Animal_Bear
+		Animal_Gorilla
+		Animal_Lion
+		Animal_Seal
 	)
     
 	func (a Animal) String() string {
