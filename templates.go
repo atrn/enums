@@ -32,7 +32,7 @@ const (
 	{{.TypeName}}_Zero_ {{.TypeName}} = iota
 {{- $TypeName:=.TypeName -}}
 {{- range .Enumerators }}
-	{{$TypeName}_{{.Enum}}
+	{{$TypeName}}_{{.Enum}}
 {{- end}}
 )
 
