@@ -21,7 +21,8 @@ type Parser struct {
 
 func NewParser(r io.Reader) *Parser {
 	p := &Parser{l: NewLexer(r)}
-	return p.Advance()
+	p.Advance()
+	return p
 }
 
 func (p *Parser) SetError(err error) {
@@ -34,11 +35,10 @@ func (p *Parser) Broken() bool {
 	return p.Err != nil
 }
 
-func (p *Parser) Advance() *Parser {
+func (p *Parser) Advance() {
 	if !p.Broken() {
 		p.Current, p.Text, p.Err = p.l.Get()
 	}
-	return p
 }
 
 func (p *Parser) Done() bool {

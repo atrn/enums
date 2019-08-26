@@ -35,7 +35,7 @@ func main() {
 	}
 	if *genDatabaseSQL {
 		ngen++
-		generator = NewGenerator("sql", sqlTemplate, []string{"database/sql"})
+		generator = NewGenerator("sql", sqlTemplate, []string{"fmt"})
 	}
 	if *genEncodingJSON {
 		ngen++
