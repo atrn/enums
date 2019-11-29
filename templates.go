@@ -11,9 +11,7 @@ package main
 //
 const basicTemplate = `// DO NOT EDIT.
 //
-// Generated: {{.Time}}
-// From:      {{.Filename}}
-// By:        {{.User}}
+// Generated from {{.Filename}}
 //
 
 package {{.Package}}
